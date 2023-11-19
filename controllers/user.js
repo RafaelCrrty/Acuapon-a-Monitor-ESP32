@@ -1,38 +1,45 @@
-const {response,request} = require('express');
+const Database = require('../database/config');
+const { response, request } = require('express');
 
-// req = respuesta externa, res = respuesta a enviar
-const usuariosGet = (req=request,res = response) =>{
-    const {query} = req.query;
-    res.json({
-        msg: 'get - controlador',
-        query
-    });
+// req = solicitud externa, res = respuesta a enviar
+const homeget = (req = request, res = response) => {
+    res.render('home');
 }
 
-const usuariosPut = (req,res = response) =>{
-    const id = req.params.id;
-    res.json({
-        msg: 'put - controlador',
-        id
-    });
-}
+const db = new Database();
+// En tu función usuariosGet
+const usuariosGet = async (req = request, res = response) => {
+    const usuario = req.body.username;
+    const password = req.body.password;
+  
+    try {
+      // Abre la conexión a la base de datos
+      await db.connect();
+  
+      const fields = await db.execute('CALL IniciarSesion(?, ?, @resultado)', [usuario, password]);
+      // Recuperar el valor del parámetro de salida
+      const [resultado] = await db.execute('SELECT @resultado as resultado');
 
-const usuariosPost = (req,res = response) =>{
-    // Desetructurar {,,}
-    const body = req.body;
-    res.json({
-        msg: 'post - controlador',
-        body
-    });
-}
-
-const usuariosDelete = (req,res = response) =>{
-    res.json({
-        msg: 'delete - controlador'
-    });
-}
-
+      if(resultado.resultado === 1){
+        res.redirect('/admin');
+      }else{
+        res.redirect('/admin');
+      }
+    } catch (error) {
+      console.error('Error en la consulta:', error);
+      res.status(500).send('Error en la consulta');
+    } finally {
+      try {
+        // Cierra la conexión a la base de datos después de obtener los resultados
+        await db.close();
+      } catch (error) {
+        console.error('Error al cerrar la conexión:', error);
+      }
+    }
+};
+  
+  
 module.exports = {
-    usuariosGet,usuariosPut,
-    usuariosPost,usuariosDelete
-}
+    usuariosGet,
+    homeget
+};
