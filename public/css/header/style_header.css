@@ -1,0 +1,89 @@
+.header_container{
+    background-color: #2a3859;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Configuración de la sombra: desplazamiento horizontal, desplazamiento vertical, desenfoque, color */
+}
+
+.header_img{
+    height: 3rem;
+    width: 3rem;
+}
+
+.nav > li > a {
+    line-height: 2; /* Ajusta la altura según sea necesario */
+}
+
+
+.link_header {
+    color: rgb(12, 11, 11);
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative; /* Asegura que los elementos internos estén posicionados relativamente al enlace */
+    transition: color 0.3s ease; /* Agrega una transición suave al color del texto */
+}
+
+.link_header::before {
+    content: ''; /* Crea un elemento vacío antes del enlace */
+    position: absolute; /* Posición absoluta para poder colocarlo en la parte inferior */
+    bottom: 0; /* Coloca el elemento en la parte inferior del enlace */
+    left: 0; /* Coloca el elemento al principio del enlace */
+    height: 2px; /* Establece la altura de la barra de carga */
+    width: 0; /* Establece el ancho inicial en 0 para que no sea visible */
+    background: #0530db; /* Color de la barra de carga */
+    transition: width 0.3s ease; /* Agrega una transición suave al ancho de la barra de carga */
+}
+
+.link_header:hover {
+    color: #0530db; /* Cambia el color del texto al pasar el mouse sobre el enlace */
+}
+
+.link_header:hover::before {
+    width: 100%; /* Aumenta el ancho de la barra de carga al 100% al pasar el mouse sobre el enlace */
+}
+
+.link_header_secondary {
+    color: rgb(29, 35, 54);
+    /* color: rgb(0, 144, 115); */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative; /* Asegura que los elementos internos estén posicionados relativamente al enlace */
+    transition: color 0.3s ease; /* Agrega una transición suave al color del texto */
+}
+
+.link_header_secondary::before {
+    content: ''; /* Crea un elemento vacío antes del enlace */
+    position: absolute; /* Posición absoluta para poder colocarlo en la parte inferior */
+    bottom: 0; /* Coloca el elemento en la parte inferior del enlace */
+    left: 0; /* Coloca el elemento al principio del enlace */
+    height: 2px; /* Establece la altura de la barra de carga */
+    width: 0; /* Establece el ancho inicial en 0 para que no sea visible */
+    background: #86B7FF; /* Color de la barra de carga */
+    transition: width 0.3s ease; /* Agrega una transición suave al ancho de la barra de carga */
+}
+
+.link_header_secondary:hover {
+    color: #060707; /* Cambia el color del texto al pasar el mouse sobre el enlace */
+}
+
+.link_header_secondary:hover::before {
+    width: 100%; /* Aumenta el ancho de la barra de carga al 100% al pasar el mouse sobre el enlace */
+}
+/* Mostrar el menú desplegable al pasar el mouse sobre el enlace */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos adicionales */
+.link_header_secondary {
+    font-weight: bold;
+}
+
+/* Otras personalizaciones según tus preferencias */
+
+
+
+
+
+
+
+
+
+
+

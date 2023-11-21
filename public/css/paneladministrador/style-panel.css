@@ -1,0 +1,16 @@
+.imagenAtras{
+    background-image: url('/imagen/Diseño\ sin\ título\ \(2\).png');
+    
+    opacity: 0.9;
+}
+
+#pregunta{
+ width: 80%;
+ margin-left: 8%;
+ margin-top: 30%;
+}
+
+#chat{
+    width: 80%;
+    margin-left: 8%;
+}

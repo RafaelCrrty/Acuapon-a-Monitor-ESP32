@@ -1,0 +1,67 @@
+body{
+    
+    background-color: #f8f9f8;
+}
+
+/*Seccion de la pagina de crear usuario*/
+.nuevousuario{
+    background-color: #eee;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.nuevousuario img{
+    border-radius: 20px;
+}
+.nuevousuario button{
+    text-decoration: none;
+    color: white;
+}
+
+
+.btn-colorfrom {
+    background-color: rgb(66, 129, 152);
+    color: #ffffff;
+}
+
+.btn-colorfrom:hover {
+    background-color: rgb(22, 173, 190);
+}
+
+
+.centrar_items{
+    display: grid;
+    place-items: center;
+ }
+ 
+ .centrar_items p{
+     padding: 0%;
+     margin: 0%;
+
+  }
+  
+.elemento-con-sombra {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  }
+
+.elemento-con-sombra .description{
+    text-align: justify;
+}
+
+  /* Estilo para el contenedor del mapa */
+.map-container {
+    border-radius: 20px; /* Bordes redondeados */
+    overflow: hidden; /* Para asegurar que los bordes redondeados se apliquen correctamente */
+    width: 1000px; /* Ancho del contenedor al 100% */
+    height: 350px; /* Altura del contenedor */
+}
+  
+  /* Estilos para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .map-container {
+        height: 250px; /* Reducir la altura para pantallas más pequeñas */
+    }
+  }
+  

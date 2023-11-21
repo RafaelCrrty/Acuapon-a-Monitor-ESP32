@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+
+    <title>Panel administrativo</title>
+    <link rel="stylesheet" href="css/general/bootstrap.min.css">
+    <link rel="stylesheet" href="css/footer/style_footer.css">
+    <link rel="stylesheet" href="css/header/style_header.css">
+    <link rel="stylesheet" href="css/general/style.css">
+    <link rel="stylesheet" href="css/general/bootstrap.css">
+
+    <link rel="stylesheet" href="css/paneladministrador/style-panel.css">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/paneladministrador/sb-admin-2.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    
+                </div>
+                <div class="sidebar-brand-text mx-3">Crystal-Aqua</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Panel Administrativo
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/panelhome" >
+                    <i style="color: black;" class="fas fa-fw fa-table"></i>
+                    <span style="color: black; font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Ayuda(s)
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="/panelhomechatBoot" >
+                    <i class="fas fa-fw fa-robot"></i>
+                    <span>ChatBot</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-5 static-top shadow">
+
+
+                    
+                    <div class="">
+                        <!--contenedor del header y que se visualice bien-->
+                        <div class="borde-header">
+                            <div class="">
+                              <header class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                                <img src="resources/img/logo/logo.jpg" width="50px" height="50px" class="mr-3">     
+                              </header>
+                            </div>
+                        </div> 
+                    </div>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav mr-lg-5 ml-auto">
+                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
+                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
+                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
+                        <li class="nav-item"><a href="/panelhome" class="px-2 link_header_secondary">Panel de Administrador</a></li>
+                        <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header">Perfil</a></li>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Sistemas Acupónicos</h1>
+                        
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                <a href="/panelhomeregisterSistem">Nuevo sistema Acuapónico</a></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Agregar</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="/panelhomeregisterSistem"><img src="resources/img/iconos/agregar-contacto.png" width="100%" height="60px"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Tabla de registrados</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Dirección IP</th>
+                                            <th>Temeperatura</th>
+                                            <th>Turbidez</th>
+                                            <th>Conexión</th>
+                                            <th>Más Info..</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Dirección IP</th>
+                                            <th>Temeperatura</th>
+                                            <th>Turbidez</th>
+                                            <th>Conexión</th>
+                                            <th>Más Info...</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Sistema1</td>
+                                            <td>192.178.1.4</td>
+                                            <td>24°</td>
+                                            <td>1 NTU</td>
+                                            <td>Disponible</td>
+                                            <td><a href="/panelhomesensors">Ver..</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+
+
+            {{> panelhomefooter}}
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    {{> panelhomefooter_sig}}
+
+    
+</body>
+
+</html>

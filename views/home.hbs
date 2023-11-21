@@ -3,47 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/general/bootstrap.min.css">
+    <link rel="stylesheet" href="css/footer/style_footer.css">
+    <link rel="stylesheet" href="css/header/style_header.css">
+    <link rel="stylesheet" href="css/general/style.css">
+    <link rel="stylesheet" type="text/css" href="css/carrucel/carousel.rtl.css">
+    <link rel="stylesheet" type="text/css" href="css/carrucel/carousel.css">
+    <script src="js/bootrap/bootstrap.bundle.min.js"></script>
     
+    <title>Document</title>
 </head>
 <body>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 offset-md-4 mt-3">
-                    <div class="carlogin">
-                    <h2 class="text-center mb-4">Iniciar Sesión</h2>
-                    <form id="formss" action="/login" method="post">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Nombre de Usuario:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                            <div class="userna invalid-feedback"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                            <div class="pass invalid-feedback"></div>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-                        </div>
-                    </form>
-                    
-                    <div class="text-center">
-                        <small class="text-body-secondary">
-                            <p>¿No tienes una cuenta? <a href="registro.php" class="text-decoration-none">Registrate</a></p>
-                        </small>
-                    </div>                 
+    <div class="borde-header">
+      <div class="">
+      <header class="elemento-con-sombra d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom " style="width: 100%; margin-bottom: 3%;">
+        <img src="resources/img/logo/logo.jpg" width="50px"; height="50px">
+        <h4 style="padding-right: 50%; margin-left: 1%; padding-top: 1%;">CRISTAL-AQUA</h4>      
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/"  class="px-2 link_header_secondary">Inicio</a></li>
+          <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
+          <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
+        </ul>    
+      </header>  
+      </div>
+    </div>
+
+
+    <!--Carrusel-->
+    <nav>
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="margin-bottom: 0px;">
+            <div class="carousel-inner">
+                <div class="carousel-item opacidad-imagen" data-bs-interval="13000">
+                    <img src="resources/img/ilustraciones/1.png" alt="Primera diapositiva" width="100%"
+                        height="100%">
+                    <div class="carousel-caption text-start">
+                        <h1>Descubre el Poder del Conocimiento</h1>
+                        <p class="opacity-75">Cada día es una oportunidad para explorar, aprender y crecer. Descubre
+                            el fascinante mundo de la investigación y expande tus horizontes académicos.</p>
+                    </div>
+                </div>
+                <div class="carousel-item opacidad-imagen" data-bs-interval="13000">
+                    <img src="resources/img/ilustraciones/2.png" alt="Segunda diapositiva" width="100%"
+                        height="100%">
+                    <div class="carousel-caption text-start">
+                        <h1>Explora el Universo del Saber</h1>
+                        <p class="opacity-75">El Taller de Investigación I es la puerta de entrada a un viaje
+                            emocionante de descubrimiento intelectual. Atrévete a investigar, cuestionar y aprender.
+                            El saber te espera.</p>
+                    </div>
+                </div>
+                <div class="carousel-item active opacidad-imagen" data-bs-interval="13000">
+                    <img src="resources/img/ilustraciones/3.png" alt="Tercera diapositiva" width="100%"
+                        height="350px">
+                    <div class="carousel-caption text-start">
+                        <h1>Forja tu Sabiduría desde la Creatividad</h1>
+                        <p class="opacity-75">Tus ideas cobran vida y se convierten en valioso conocimiento. Únete a
+                            nosotros en esta emocionante travesía hacia el aprendizaje y la innovación.</p>
                     </div>
                 </div>
             </div>
-            <script src="js/iniciosesion.js"></script>
-             
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
         </div>
+    </nav>
+
+    <main>
+        <section>
+        <article class="container">
+                <div class="container py-4">           
+                    <div class="row align-items-md-stretch">
+                      <div class="col-md-6">
+                        <!--La sección de presentasión del sitio web-->
+                        <div class="h-100 p-5 text-white bg-dark rounded-3"> 
+                          <h2>Cristal-Aqua</h2>
+                          <h4>Monitoreo y Control Automatizado para la Sostenibilidad en Acuicultura</h4>
+                          <p>La implementación de un sistema automatizado de monitoreo y control, utilizando sensores y actuadores, es esencial para reducir el estrés de los peces y mejorar significativamente su calidad de vida. Este enfoque no solo beneficia a los peces, sino también a la industria de la acuicultura en su conjunto, promoviendo la sostenibilidad del sistema.
+
+                            La justificación de mejorar la calidad de vida de los peces es multifacética. En primer lugar, al reducir el estrés en su entorno, los peces se vuelven menos propensos a enfermedades, lo que a su vez contribuye a un aumento en su salud general. Un ambiente menos estresante también tiene un impacto directo en la calidad de la carne del pez, mejorando su textura y sabor.
+                          </p>    
+                        </div>
+                      </div>
+                      <!--La sección de inicio de sesión-->
+                      <div class="col-md-6"> 
+                        <div class="h-100 p-5 border rounded-3">
+                            <form id = "formss" action="/login" method="post">
+                              <h2 class="fs-5 fw-bold mb-3">Bienvenido</h2>
+                              <div class="mb-3">
+                                 <label for="username" class="form-label">Nombre de Usuario:</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="AA123ASD" required>
+                                <div class="userna is-invalid"></div>
+                              </div>
+                              <div class="mb-3">
+                                 <label for="password" class="form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+                                 <div class="pass is-invalid"></div>
+                              </div>
+                              <input type="submit" value="Iniciar sesión" class="w-100 mb-2 btn rounded-4 btn-primary">
+                              <a href="/recuperar">¿Olvidaste la contraseña?</a>
+                              <hr class="my-3">
+                              <a href="/registro"><button class="w-100 py-2 mb-2 btn btn-outline-info rounded-4" type="button">Crear Cuenta</button></a>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+        </article>
+        </section>
+        <br>
+        <section>
+            <article class="container">
+                <div class="album py-5 bg-body-tertiary">
+                    <div class="container">
+
+                    <h2>Fuentes de consulta sobre Sistemas acuaponicos</h2>
+                    <br>  
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        <div class="col">
+                          <div class="card shadow-sm">
+                            <img src="resources/img/albahaca/albahaca1.jpg" alt="IA inteligencia artificial" width="100%" height="280px">
+                            <div class="card-body">
+                              <p class="card-text">El Journal of Medical Internet Research (JMIR) informa que el uso del Chat GPT permite redactar documentos médicos falsos, comprometiendo la fiabilidad de los artículos publicados.</p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>
+                                <small class="text-body-secondary">9 mins</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card shadow-sm">
+                            <img src="resources/img/albahaca/albahaca2.jpg" alt="proyecto gutenberg" width="100%" height="100%">
+                              <div class="card-body">
+                              <p class="card-text">Project Gutenberg se asoció con MIT y Microsoft para crear una gran colección de audiolibros clásicos utilizando inteligencia artificial, facilitando el acceso a la literatura.</p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>
+                                <small class="text-body-secondary">9 mins</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card shadow-sm">
+                            <img src="resources/img/tilapias/tilapias1.png" alt="Medusas: los maestros del aprendizaje sin cerebro central" width="100%" height="100%">
+                            <div class="card-body">
+                              <p class="card-text">Las medusas pueden aprender de experiencias pasadas, como humanos y animales, a pesar de no tener un cerebro central, según un estudio en Current Biology.</p>
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>
+                                <small class="text-body-secondary">9 mins</small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                              <img src="resources/img/tilapias/tilapias2.jpg" alt="Medusas: los maestros del aprendizaje sin cerebro central" width="100%" height="100%">
+                              <div class="card-body">
+                                <p class="card-text">Las medusas pueden aprender de experiencias pasadas, como humanos y animales, a pesar de no tener un cerebro central, según un estudio en Current Biology.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                  </div>
+                                  <small class="text-body-secondary">9 mins</small>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card shadow-sm">
+                              <img src="resources/img/IOTacuaponia/IOT1.png" alt="Medusas: los maestros del aprendizaje sin cerebro central" width="100%" height="100%">
+                              <div class="card-body">
+                                <p class="card-text">Las medusas pueden aprender de experiencias pasadas, como humanos y animales, a pesar de no tener un cerebro central, según un estudio en Current Biology.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                  </div>
+                                  <small class="text-body-secondary">9 mins</small>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card shadow-sm">
+                              <img src="resources/img/IOTacuaponia/IOT2.png" alt="Medusas: los maestros del aprendizaje sin cerebro central" width="100%" height="100%">
+                              <div class="card-body">
+                                <p class="card-text">Las medusas pueden aprender de experiencias pasadas, como humanos y animales, a pesar de no tener un cerebro central, según un estudio en Current Biology.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                  </div>
+                                  <small class="text-body-secondary">9 mins</small>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            </article>
+        </section>
+        <br>
+
+
     </main>
+
+    {{> _footer}}
+ 
+    
+    <script src="js/script.js"></script>
 
 </body>
 </html>
