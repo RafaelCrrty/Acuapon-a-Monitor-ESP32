@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Perfil de Usuario</title>
+
+    <link rel="stylesheet" href="css/general/bootstrap.min.css">
+    <link rel="stylesheet" href="css/footer/style_footer.css">
+    <link rel="stylesheet" href="css/header/style_header.css">
+    <link rel="stylesheet" href="css/general/style.css">
+    <link rel="stylesheet" href="css/general/bootstrap.css">
+
+    <link rel="stylesheet" href="css/paneladministrador/style-panel.css">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/paneladministrador/sb-admin-2.css" rel="stylesheet">
     
 
-    <title>Panel administrativo</title>
-    {{> header}}
-
+    <style>
+      .card-panel {
+        height: 170px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.163);
+      }
+    </style>
 
 </head>
 
@@ -25,14 +45,14 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    
                 </div>
-                <div class="sidebar-brand-text mx-3">Crystal-Aqua</div>
+                <div class="sidebar-brand-text mx-3">
+                    Crystal-Aqua
+                </div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -45,8 +65,8 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/panelhome" >
-                    <i style="color: black;" class="fas fa-fw fa-table"></i>
-                    <span style="color: black; font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
+                    <i style="color: rgb(255, 255, 255);" class="fas fa-fw fa-table"></i>
+                    <span style="color: rgb(255, 254, 254); font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
                 </a>
             </li>
 
@@ -99,149 +119,178 @@
                         <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
                         <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
                         <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
-                        <li class="nav-item"><a href="/panelhome" class="px-2 link_header_secondary">Panel de Administrador</a></li>
-                        <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header">Perfil</a></li>
+                        <li class="nav-item"><a href="/panelhome" class="px-2 link_header">Panel de Administrador</a></li>
+                        <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header_secondary">Perfil</a></li>
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Sistema Acuapónico</h1>
-                    </div>
-                    <p>
-                        Server status
-                        Estatus: Conectado
-                        <span id ="lblonline" class="text-success">Online</span>
-                        <span id ="lbloffline" class="text-danger">Offline</span>
-                    </p>
-                    <p id="datosSensor" class="text-success">&</p>
-                    <div class="card text-black" style="border-radius: 25px;">
-                        <div class="card-body p-md-3 justify-content-center">
-                            <div style="margin-left: 15%;">
-                          <div class="row flex justify-content-start">
-                            
-                                <div class="d-flex flex-row align-items-start mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h4 style="margin-top: 10px;">Nombre: Sistema1</h4>
-                                  </div>
-                                  <div class="form-outline flex-fill mt-2">
-                                    <h4>Dirección IP: 192.168.1.4</p></h5>
-                                </div>
-                                </div>
-              
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  
-                                </div>            
-                              
-                            
-                            <div class="row justify-content-end">
-                                <div class="d-flex flex-row align-items-start mb-4">
-                                    <div class="form-outline flex-fill mb-0">
-                                        <h4 style="margin-top: 10px;">Ubicación del sistema</h4>
-                                        <p>Codigo de la pecera: #1242323</p>
-                                        <p>Fecha de instalación: 12-06-3001</p>
-                                        <p>Colonia: zaragoza</p>
-                                        <p>Calle: Milagros</p>
-                                        <p>Numero interior: #e3</p>
-                                        <p>Numero exterior: #m34</p>
-                                         
-                                    </div>
 
-                                    <div class="form-outline flex-fill mb-0">
-                                        <h4>Tipo de Pez y planta</h4>
-                                        <p>Especie de pez: Cardumen</p>
-                                        <p>Tamaño promedio: Cardumen</p>
-                                        <p>Frecuecia de alimentación: Cardumen</p>
-                                        <p>Temperatura del agua promdio : Cardumen</p>
-                                        <p>Especie de planta: orquilla</p>
-                                        <p>Tipo de raiz: orquilla</p>
-                                        <p>Tamaño promedio: 100cm</p>
-                                    </div>
-                                  </div>
+                  <div class="container mt-3 ">
+                    <div class="row g-3 ">
+                      <div class="col-sm-12" id = "fondo">
+                        <h1 class="mt-5 text-light">Monitoreo del Sistema Acuapónico</h1>
+                        <a href="/panelhomedescribeAcuaponio" class="text-warning">Especificaciones</a>
+                      </div>
+                      <div class="col-sm-6 align-items-center">
+                        <div class="card-panel h-100 p-3 d-flex align-items-center justify-content-center text-center">
+                            <canvas id="areaChart"></canvas>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="row g-3">
+                          <div class="col-sm-6">
+                            <div class="card-panel p-3 d-flex align-items-center justify-content-center text-center">
+                              <div class="row g-3 align-items-center">
+                                <div class="col-sm-12 text-center">
+                                  <img src="resources/img/iconos/temperatura.png" width="45" height="45" alt=""
+                                  data-bs-toggle="tooltip" data-bs-placement="top" title="Temperatura ambiente">
+                                  <strong>Temperatura ambiente</strong>
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                  <h3 id="temperatureA">#</h3>
+                               </div>
+                              </div>
+                
                             </div>
                           </div>
-                        </div>
-                        </div>
-                        <!-- grafica de temperatura-->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fa-thermometer-half"></i>Temperatura</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
+                          <div class="col-sm-6">
+                            <div class="card-panel p-3 d-flex align-items-center justify-content-center text-center">
+                              <div class="row g-3 align-items-center">
+                                <div class="col-sm-12 text-center">
+                                  <img src="resources/img/iconos/humedad.png" width="45" height="45" alt=""
+                                  data-bs-toggle="tooltip" data-bs-placement="top" title="Humedad ambiente">
+                                  <strong>Humedad</strong>
                                 </div>
-                                <hr>
+                                <div class="col-sm-12 text-center">
+                                  <h3 id="humedad">#</h3>
+                               </div>
+                              </div>
+                
                             </div>
-                        </div>
-                        <!-- grafica de Humedad exterior-->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fa-cloud-rain"></i>Humedad</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart1"></canvas>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card-panel p-3 d-flex align-items-center justify-content-center text-center">
+                              <div class="row g-3 align-items-center">
+                                <div class="col-sm-12 text-center">
+                                  <img src="resources/img/iconos/rayo.png" width="45" height="45" alt=""
+                                  data-bs-toggle="tooltip" data-bs-placement="top" title="Conductividad">
+                                  <strong>Conductividad</strong>
                                 </div>
-                               
+                                <div class="col-sm-12 text-center">
+                                  <h3 id="conductividad">#</h3>
+                               </div>
+                              </div>
+                
                             </div>
-                        </div>
-                        <!-- grafica de Nivel de Agua-->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fa-water"></i>Nivel de Agua</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart2"></canvas>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card-panel p-3 d-flex align-items-center justify-content-center text-center">
+                              <div class="row g-3 align-items-center">
+                                <div class="col-sm-12 text-center">
+                                  <img src="resources/img/iconos/agua.png" width="45" height="45" alt=""
+                                  data-bs-toggle="tooltip" data-bs-placement="top" title="Turvidez del agua">
+                                  <strong>Turvidez del agua</strong>
                                 </div>
-                               
+                                <div class="col-sm-12 text-center">
+                                  <h3 id="turvidez">#</h3>
+                               </div>
+                              </div>
+                
                             </div>
+                          </div>
+                
                         </div>
-                        <!-- grafica de Nivel de conductividad-->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fa-chart-line"></i>Nivel de Conductividad</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart3"></canvas>
-                                </div>
-                               
-                            </div>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="card-panel h-100 p-3">
+                          <canvas id="areaCharts"></canvas>
                         </div>
-                        <!-- grafica de turbidez del Agua-->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary"> <i class="fas fa-fw fa-hand-holding-water"></i>Turbidez del Agua</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart4"></canvas>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            {{> panelhomefooter}}
-            <!-- End of Footer -->
-
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="d-flex align-items-center">
+                                <img src="resources/img/logo/logo.jpg" width="25px" height="25px" style="margin-right: 3%;">
+                                <p style="margin-top: 3%;" class="text-muted">&copy;2023, Cristal-Aqua</p>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <ul class="nav nav-pills justify-content-end"> <!-- Añade la clase justify-content-end aquí -->
+                                <li class="ms-3"><a class="text-muted" href="#"><img src="resources/img/redSocial/Instagram.png" class="bi" width="24" height="24"></a></li>
+                                <li class="ms-3"><a class="text-muted" href="#"><img src="resources/img/redSocial/Discord.png" class="bi" width="24" height="24"></a></li>
+                                <li class="ms-3"><a class="text-muted" href="#"><img src="resources/img/redSocial/Twitter.png" class="bi" width="24" height="24"></a></li>
+                                <li class="ms-3"><a class="text-muted" href="#"><img src="resources/img/redSocial/facebook.png" class="bi" width="24" height="24"></a></li>
+                                <li class="ms-3"><a class="text-muted" href="#"><img src="resources/img/redSocial/email.png" class="bi" width="24" height="24"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
         <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Page Wrapper -->
-    {{> panelhomefooter_sig}}
-    <script src="./socket.io/socket.io.js"></script>
-    <script src="./js/sockets/graficasSensores.js"></script>
-</body>
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <!-- js/sb-admin-2.min.js -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</div>
+
+<script>
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="./socket.io/socket.io.js"></script>
+<script src="./js/sockets/graficasSensores.js"></script>
+</body>
 </html>

@@ -11,6 +11,11 @@ class Server {
         this.io = require('socket.io')(this.server);
         this.port = process.env.PORT;
         this.usuariosPath = '/';
+        this.sesiones = session(({
+            secret: 'tu_secreto', // Cambia esto con una cadena de caracteres segura
+            resave: true,
+            saveUninitialized: true,
+        }));
         // Middlewares
         this.middlewares();
         // Rutas de mi aplicación
@@ -30,11 +35,7 @@ class Server {
         // Configurar middleware para analizar cuerpos de solicitudes codificados en URL
         this.app.use(express.urlencoded({ extended: true }));
                 // Configura express-session
-        this.app.use(session({
-            secret: 'tu_secreto', // Cambia esto con una cadena de caracteres segura
-            resave: false,
-            saveUninitialized: true,
-        }));
+        this.app.use(this.sesiones);
 
         this.app.set('view engine', 'hbs');
         hbs.registerPartials(this.direccion + '/views/partials');  // Aquí se registran los parciales
@@ -43,7 +44,7 @@ class Server {
 
     routes() {
         const io = this.io;
-        this.app.use(this.usuariosPath, (req, res, next) => {
+       this.app.use(this.usuariosPath,(req, res, next) => {
           req.io = io;
           next();
         }, require('../routes/user'));
@@ -56,5 +57,4 @@ class Server {
         });
     }
 }
-
 module.exports = Server;

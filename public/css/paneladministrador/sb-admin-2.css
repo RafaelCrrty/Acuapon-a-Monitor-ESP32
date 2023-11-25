@@ -6460,7 +6460,7 @@ button.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #00768e !important;
+  background-color: #203748 !important;
 }
 
 a.bg-danger:hover, a.bg-danger:focus,
@@ -10825,8 +10825,9 @@ a:focus {
 
 .chart-area {
   position: relative;
-  height: 10rem;
+  height: 20rem;
   width: 100%;
+  background-color: #113b42;
 }
 
 @media (min-width: 768px) {

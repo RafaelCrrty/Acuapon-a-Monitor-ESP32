@@ -8,7 +8,6 @@ class Database {
       password: '',
       database: 'crystal_acua',
     });
-
     this.connect();
   }
 
