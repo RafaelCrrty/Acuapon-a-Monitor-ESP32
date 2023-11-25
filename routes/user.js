@@ -2,20 +2,12 @@
 const { Router } = require('express');
 const { validarSesion } = require('../controllers/validarSesion');
 const {
-  homeget,
-  acercade,
-  contacto,
-  registroUsuario,
+  homeget,  acercade,  contacto,  registroUsuario,
   recuperarCuenta,
-  panelhome,
-  registerPlan,
+  panelhome,  registerPlan,
   registerSistem,
-  sensors,
-  chatBoot,
-  perfil,
-  usuariosGet,
-  sensorsData,
-  describeAcuaponio,infoacuaponios
+  sensors,  chatBoot,
+  perfil,  usuariosGet,  sensorsData,  describeAcuaponio,infoacuaponios,CaracterisAcuaponio
 } = require('../controllers/user');
 
 const router = Router();
@@ -42,5 +34,6 @@ router.post('/datasensorJson', sensorsData);
 
 //Rutas para consultas a la BD
 router.get('/getacuaponios',infoacuaponios)
+router.get('/getCaracterisAcuaponio',CaracterisAcuaponio)
 
 module.exports = router;

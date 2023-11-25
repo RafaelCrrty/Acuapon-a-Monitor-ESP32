@@ -8,7 +8,6 @@
         const contrasena = document.getElementById('contrasena');
         const nombre = document.getElementById('nombre');
         const apellido = document.getElementById('apellido');
-        const puesto = document.getElementById('puesto');
         const generoSeleccionado = document.getElementById('genero');
         const telefono = document.getElementById('telefono');
         const email = document.getElementById('correo');
@@ -56,12 +55,15 @@
             numpeces.innerHTML = `Cantidad de peces: ${cantPeces}`;
             // Mostrar los datos en la página
             numplantas.innerHTML = `Cantidad de plantas: ${num_plantas}`;
-
             usuario.value = `${usuarioC}`;
             contrasena.value = `${contrasenaC}`;
             nombre.value = `${nombreC}`;
             apellido.value =`${apellidoC}`;
-            generoSeleccionado.value = `${generoSeleC}`;
+            if(generoSeleC === 1){
+              generoSeleccionado.value = 'masculino';
+            }else{
+              generoSeleccionado.value = 'femenino';
+            }
             telefono.value =`${telefonoC}`;
             email.value = `${emailC}`;
             fechanacimiento.value = `${fechaFormateada}`;

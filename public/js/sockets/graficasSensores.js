@@ -55,11 +55,9 @@ socket.on('disconnect', () => {
 });
 
 socket.on('datos-sensores', (datos) => {
-
   console.log('Datos recibidos en el cliente:', datos);
   rellenargraficas(etiquetas,dataArea,datos.temperatureP,areaChartH);
   rellenargraficas(etiquetass,dataAreas,datos.flujoagua,areaChartP);
-
   // Mostrar los datos de temperatura en el HTML
   //datosSensorElement.innerText = `Temperature: ${datos.temperature}, Humidity: ${datos.humidity}`;
     temperatureA.innerText = `${datos.temperatureH} ºC`;
