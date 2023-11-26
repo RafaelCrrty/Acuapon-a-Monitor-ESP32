@@ -7,7 +7,7 @@ const {
   panelhome,  registerPlan,
   registerSistem,
   sensors,  chatBoot,
-  perfil,  usuariosGet,  sensorsData,  describeAcuaponio,infoacuaponios,CaracterisAcuaponio
+  perfil,  usuariosGet,  sensorsData,  describeAcuaponio,infoacuaponios,CaracterisAcuaponio,dataAcuaponioHome
 } = require('../controllers/user');
 
 const router = Router();
@@ -33,7 +33,7 @@ router.post('/login', usuariosGet);
 router.post('/datasensorJson', sensorsData);
 
 //Rutas para consultas a la BD
-router.get('/getacuaponios',infoacuaponios)
-router.get('/getCaracterisAcuaponio',CaracterisAcuaponio)
-
+router.get('/getacuaponios',infoacuaponios);
+router.get('/getCaracterisAcuaponio',CaracterisAcuaponio);
+router.get('/getdataHomeacuaponio',dataAcuaponioHome)
 module.exports = router;

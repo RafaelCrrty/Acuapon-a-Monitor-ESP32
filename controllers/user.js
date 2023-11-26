@@ -121,6 +121,37 @@ const infoacuaponios = async (req = request, res = response) => {
   }
 };
 
+//dataAcuaponioHome
+const dataAcuaponioHome = async (req = request, res = response) => {
+  let connection; // Declarar la variable de conexión fuera del bloque try
+  try {
+    connection = await db.connect();
+    // Verificar si req.session.usuario está definido
+    if (req.session.usuario !== undefined) {
+      const fields = await db.execute('CALL getdataCountPesPlan(?)', [req.session.usuario]);
+     // Estructurar los resultados en un objeto JSON
+      const responseData = {
+              data: {
+                dataAcuaponioHome: fields,
+              }
+      };
+      // Enviar los resultados como JSON
+      res.json({responseData});
+    } else {
+      // Manejar el caso donde req.session.usuario es undefined
+      res.status(400).json({ error: 'El usuario no está definido en la sesión.' });
+    }
+  } catch (error) {
+    console.error('Error en la consulta:', error);
+    res.status(500).json({ error: `Error en la consulta: ${error.message}` });
+  } finally {
+    // Cerrar la conexión en caso de error o éxito
+    if (connection) {
+      await db.close();
+    }
+  }
+};
+
 const CaracterisAcuaponio = async (req = request, res = response) => {
   let connection; // Declarar la variable de conexión fuera del bloque try
   try {
@@ -163,5 +194,6 @@ const sensorsData = (req, res) => {
   
 module.exports = {
   homeget,acercade,contacto,registroUsuario,recuperarCuenta,
-  panelhome,registerPlan,registerSistem,sensors,chatBoot,perfil,usuariosGet,sensorsData,describeAcuaponio,infoacuaponios,CaracterisAcuaponio
+  panelhome,registerPlan,registerSistem,sensors,chatBoot,perfil,usuariosGet,sensorsData,
+  describeAcuaponio,infoacuaponios,CaracterisAcuaponio,dataAcuaponioHome
 };

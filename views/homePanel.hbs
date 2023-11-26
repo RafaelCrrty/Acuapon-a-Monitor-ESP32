@@ -136,7 +136,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            
+
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 <a href="/panelhomeregisterSistem">Nuevo sistema Acuapónico</a></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">Agregar</div>
@@ -159,33 +159,25 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Dirección IP</th>
-                                            <th>Temeperatura</th>
-                                            <th>Turbidez</th>
+                                            <th>COD acuaponio</th>
+                                            <th>Tamaño Pecera</th>
+                                            <th>Cantidad peces</th>
+                                            <th>Cantidad de plantas</th>
                                             <th>Conexión</th>
                                             <th>Más Info..</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nombre</th>
-                                            <th>Dirección IP</th>
-                                            <th>Temeperatura</th>
-                                            <th>Turbidez</th>
+                                            <th>COD acuaponio</th>
+                                            <th>Tamaño Pecera</th>
+                                            <th>Cantidad peces</th>
+                                            <th>Cantidad de plantas</th>
                                             <th>Conexión</th>
                                             <th>Más Info...</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Sistema1</td>
-                                            <td>192.178.1.4</td>
-                                            <td>24°</td>
-                                            <td>1 NTU</td>
-                                            <td>Disponible</td>
-                                            <td><a href="/panelhomesensors">Ver..</a></td>
-                                        </tr>
+                                    <tbody id="tabledoyData">
                                     </tbody>
                                 </table>
                             </div>
@@ -211,7 +203,7 @@
     <!-- End of Page Wrapper -->
     {{> panelhomefooter_sig}}
 
-    
+    <script src="js/getinfoDatahome.js"></script>
 </body>
 
 </html>

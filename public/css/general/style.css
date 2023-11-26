@@ -1,22 +1,22 @@
-body{
-    
+body {
     background-color: #f8f9f8;
 }
 
-/*Seccion de la pagina de crear usuario*/
-.nuevousuario{
+/* Sección de la página de crear usuario */
+.nuevousuario {
     background-color: #eee;
     padding-top: 2%;
     padding-bottom: 2%;
 }
-.nuevousuario img{
+
+.nuevousuario img {
     border-radius: 20px;
 }
-.nuevousuario button{
+
+.nuevousuario button {
     text-decoration: none;
     color: white;
 }
-
 
 .btn-colorfrom {
     background-color: rgb(66, 129, 152);
@@ -27,68 +27,130 @@ body{
     background-color: rgb(22, 173, 190);
 }
 
-
-.centrar_items{
+.centrar_items {
     display: grid;
     place-items: center;
- }
- 
- .centrar_items p{
-     padding: 0%;
-     margin: 0%;
+}
 
-  }
-  
+.centrar_items p {
+    padding: 0%;
+    margin: 0%;
+}
+
 .elemento-con-sombra {
     margin-bottom: 20px;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.elemento-con-sombra .description{
+.elemento-con-sombra .description {
     text-align: justify;
 }
 
-  /* Estilo para el contenedor del mapa */
+/* Estilo para el contenedor del mapa */
 .map-container {
-    border-radius: 20px; /* Bordes redondeados */
-    overflow: hidden; /* Para asegurar que los bordes redondeados se apliquen correctamente */
-    width: 1000px; /* Ancho del contenedor al 100% */
-    height: 350px; /* Altura del contenedor */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    overflow: hidden;
+    /* Para asegurar que los bordes redondeados se apliquen correctamente */
+    width: 1000px;
+    /* Ancho del contenedor al 100% */
+    height: 350px;
+    /* Altura del contenedor */
 }
-  
-  /* Estilos para pantallas más pequeñas */
-  @media (max-width: 768px) {
-    .map-container {
-        height: 250px; /* Reducir la altura para pantallas más pequeñas */
-    }
-  }
-  
 
-  .profile-img {
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .map-container {
+        height: 250px;
+        /* Reducir la altura para pantallas más pequeñas */
+    }
+}
+
+.profile-img {
     width: 100%;
     height: 250px;
-    position: relative; /* Añade posición relativa para permitir el posicionamiento absoluto dentro de este elemento */
+    position: relative;
+    /* Añade posición relativa para permitir el posicionamiento absoluto dentro de este elemento */
 }
 
 .circle-img {
     border-radius: 50%;
-    width: 200px; /* ajusta el tamaño según sea necesario */
-    height: 200px; /* ajusta el tamaño según sea necesario */
+    width: 200px;
+    /* ajusta el tamaño según sea necesario */
+    height: 200px;
+    /* ajusta el tamaño según sea necesario */
     object-fit: cover;
-    position: absolute; /* Añade posición absoluta para superponer esta imagen */
-    top: 70px; /* Ajusta la distancia desde la parte superior según sea necesario */
-    left: 11%; /* Centra horizontalmente en relación con el contenedor principal */
-    transform: translateX(-50%); /* Centra completamente la imagen */
+    position: absolute;
+    /* Añade posición absoluta para superponer esta imagen */
+    top: 70px;
+    /* Ajusta la distancia desde la parte superior según sea necesario */
+    left: 11%;
+    /* Centra horizontalmente en relación con el contenedor principal */
+    transform: translateX(-50%);
+    /* Centra completamente la imagen */
 }
 
-#fondo{
-width: 100%;
-height: 150px;
-background-image: url(/resources/img/ilustraciones/1.png);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center ;
+#fondo {
+    width: 100%;
+    height: 150px;
+    background-image: url(/resources/img/ilustraciones/1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
+#fondo_general {
+    width: 100%;
+    height: 150px;
+    background-image: url(/resources/img/ilustraciones/6.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ddd;
+}
+
+
+.barra {
+    height : 100%;
+    min-height: 600px;
+    width: 100%;
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin: auto; /* Agrega margen automático para centrar */
+}
+
+.relleno {
+    width: 100%; /* Ajusta al 100% */
+    height: 0;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    transition: height 1s ease-in-out;
+}
+
+.porcentaje {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
