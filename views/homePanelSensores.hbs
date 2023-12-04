@@ -42,7 +42,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/panelhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
                 <div class="sidebar-brand-text mx-3">
@@ -69,21 +69,7 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Ayuda(s)
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/panelhomechatBoot" >
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>ChatBot</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -115,11 +101,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav mr-lg-5 ml-auto">
-                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
-                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
-                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
                         <li class="nav-item"><a href="/panelhome" class="px-2 link_header">Panel de Administrador</a></li>
                         <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header_secondary">Perfil</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="px-2 link_header_secondary" onclick="confirmarCerrarSesion()">Cerrar sesión</a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -133,76 +119,59 @@
                 <a href="/panelhomedescribeAcuaponio" class="text-warning">Especificaciones</a>
             </div>
         </div>
-        <div class="col-sm-12">
-            <div class="h-100">
-                <div class="row">
-                     <div id="status_server" class="col-sm-12 h-100  mt-2 elemento-con-sombra border-left-success text-left align-items-center">
-                        <h5 id="server" style="color: black;">Status de conexion con el servidor</h5> 
-                    </div>
-                </div>
-            </div>        
+        <div id="status_server" class="col-sm-5 ml-2 h-100 mr-2 elemento-con-sombra border-left-success text-left align-items-center">
+            <h5 id="server" style="color: black;">Status de conexion con el servidor</h5> 
+        </div>
+        <!-- Sección 1 -->
+        <div class="col-sm-3 mr-2 elemento-con-sombra border-left-success">
+            <h5 id="temperatura_a" style="color: black;">Temperatura: 10 ºC</h5>
+        </div>
+        <div class="col-sm-3 elemento-con-sombra border-left-success">
+            <h5 id="humedad_a" style="color: black;">Humedad: 10 %</h5>
         </div>
 
-        <div class="col-sm-12">
-            <div class="row">
-                <div class="col-sm-3 elemento-con-sombra border-left-success">
-                   <h5 id = "temperatura_a" style="color: black;">Temperatura: 10 ºc</h5>
-                </div>
-                <div class="col-sm-3 elemento-con-sombra border-left-success">
-                    <h5 id = "humedad_a" style="color: black;">Humedad: 10 %</h5>
-                </div>
-                <div class="col-sm-3 elemento-con-sombra border-left-success">
-                    <h5 id = "conductividad_a" style="color: black;">Conductividad: 10%</h5>
-                </div>
-                <div class="col-sm-3 elemento-con-sombra border-left-success">
-                    <h5 id = "turvidez_a" style="color: black;">Turvidez: 10 %</h5>
+        <!-- Sección 2 -->
+        <div class="row mt-4">
+            <div class="col-sm-6">
+                <div class="elemento-con-sombra h-100 py-2 chart-container">
+                    <strong>Temperatura de la pecera</strong>
+                    <canvas id="areaChart1"></canvas>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-12">
-            <div class="row g-3">
-                <div class="col-sm-6">
-                    <div class="elemento-con-sombra h-100 py-2 chart-container">
-                        <strong>Temperatura de la pecera</strong>
-                        <canvas id="areaChart1"></canvas>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="elemento-con-sombra h-100 py-2 chart-container">
-                        <strong>Caudal de flujo</strong>
-                        <canvas id="areaChart2"></canvas>
-                    </div>
+            <div class="col-sm-6">
+                <div class="elemento-con-sombra h-100 py-2 chart-container">
+                    <strong>Caudal de flujo</strong>
+                    <canvas id="areaChart2"></canvas>
                 </div>
             </div>
         </div>
 
-
-        <div class="col-sm-12">
-            <div class="row g-3">
-                <div class="col-sm-10">
-                    <div class="elemento-con-sombra h-100 py-2 chart-container">
-                        <strong>Temperatura de la pecera</strong>
-                        <canvas id="lineChart"></canvas>
-                    </div>
+        <!-- Sección 3 -->
+        <div class="row mt-4">
+            <div class="col-sm-6">
+                <div class="elemento-con-sombra h-100 py-2 chart-container">
+                    <strong>Turbidez</strong>
+                    <canvas id="areaChart3"></canvas> <!-- Asegúrate de utilizar un ID único -->
                 </div>
-                <div class="col-sm-2">
-                    <div class="elemento-con-sombra h-100 py-2">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <div class="barra">
-                                    <div class="relleno" id="nivelAgua"></div>
-                                    <div class="porcentaje" id="porcentaje">0%</div>
-                                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="elemento-con-sombra h-100 py-2 chart-container">
+                    <strong>Conductividad</strong>
+                    <canvas id="areaChart4"></canvas> <!-- Asegúrate de utilizar un ID único -->
+                </div>
+            </div>
+
+            <div class="col-sm-12 mt-4">
+                <div class="elemento-con-sombra h-100 py-2">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="barra">
+                                <div class="relleno" id="nivelAgua"></div>
+                                <div class="porcentaje" id="porcentaje">0%</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12">
-                    <div class="elemento-con-sombra h-100 py-2">
-
-                    </div>
-                </div>
-
             </div>
         </div>
 
@@ -295,5 +264,16 @@
 
 <!-- MODIFICAR LAS GRAFICAS: <script src="./js/sockets/graficasSensores.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function confirmarCerrarSesion() {
+    // Muestra un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de que quieres cerrar la sesión?');
+
+    // Si el usuario hace clic en "Aceptar", redirige a la ruta de cerrar sesión
+    if (confirmacion) {
+      window.location.href = '/cerrarsesion';
+    }
+  }
+</script>
 </body>
 </html>

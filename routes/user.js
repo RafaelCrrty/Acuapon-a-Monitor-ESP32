@@ -3,11 +3,12 @@ const { Router } = require('express');
 const { validarSesion } = require('../controllers/validarSesion');
 const {
   homeget,  acercade,  contacto,  registroUsuario,
-  recuperarCuenta,
+  recuperarCuenta,updateuserscuenta,
   panelhome,  registerPlan,
   registerSistem,
-  sensors,  chatBoot,
-  perfil,  usuariosGet,  sensorsData,  describeAcuaponio,infoacuaponios,CaracterisAcuaponio,dataAcuaponioHome
+  sensors,
+  perfil,  usuariosGet,  sensorsData,  describeAcuaponio,infoacuaponios,CaracterisAcuaponio,
+  dataAcuaponioHome,registerusers,estadomunicipio,datamunicipios,updateuserscontacto,cerrarsesion
 } = require('../controllers/user');
 
 const router = Router();
@@ -25,15 +26,24 @@ router.get('/panelhomeregisterPlan', validarSesion, registerPlan);
 router.get('/panelhomeregisterSistem', validarSesion, registerSistem);
 router.get('/panelhomesensors', validarSesion, sensors);
 router.get('/panelhomedescribeAcuaponio', validarSesion, describeAcuaponio);
-router.get('/panelhomechatBoot', validarSesion, chatBoot);
 router.get('/panelhomeperfil', validarSesion, perfil);
+
+// DESTRUIR LA SESION
+router.get('/cerrarsesion',cerrarsesion);
+
 
 // Rutas para las validaciones de las vistas
 router.post('/login', usuariosGet);
+router.post('/registerusers', registerusers);
 router.post('/datasensorJson', sensorsData);
+router.post('/updateuserscuenta',updateuserscuenta);
+router.post('/updateuserscontacto',updateuserscontacto);
 
 //Rutas para consultas a la BD
 router.get('/getacuaponios',infoacuaponios);
 router.get('/getCaracterisAcuaponio',CaracterisAcuaponio);
-router.get('/getdataHomeacuaponio',dataAcuaponioHome)
+router.get('/getdataHomeacuaponio',dataAcuaponioHome);
+router.get('/estadomunicipio',estadomunicipio);
+router.get('/datamunicipios/:estadoId',datamunicipios)
+
 module.exports = router;

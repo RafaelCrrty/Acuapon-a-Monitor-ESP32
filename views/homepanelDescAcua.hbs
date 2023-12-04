@@ -43,7 +43,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/panelhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
                 <div class="sidebar-brand-text mx-3">
@@ -70,21 +70,6 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Ayuda(s)
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/panelhomechatBoot" >
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>ChatBot</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -116,11 +101,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav mr-lg-5 ml-auto">
-                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
-                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
-                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
                         <li class="nav-item"><a href="/panelhome" class="px-2 link_header">Panel de Administrador</a></li>
                         <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header_secondary">Perfil</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="px-2 link_header_secondary" onclick="confirmarCerrarSesion()">Cerrar sesión</a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -153,39 +138,39 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="especiePes">Especie de pez</label>
-                                                        <input type="text" class="form-control" id="especiePes" name="especiePes" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="especiePes" name="especiePes" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                     
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="especieplan">Especie de planta</label>
-                                                        <input type="text" class="form-control" id="especieplan" name="especieplan" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="especieplan" name="especieplan" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="crecimientoPes">Crecimiento</label>
-                                                        <input type="text" class="form-control" id="crecimientoPes" name="crecimientoPes" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="crecimientoPes" name="crecimientoPes" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="crecimientoPlan">Crecimiento</label>
-                                                        <input type="text" class="form-control" id="crecimientoPlan" name="crecimientoPlan" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="crecimientoPlan" name="crecimientoPlan" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="alimentaPes">Alimentación</label>
-                                                        <input type="text" class="form-control" id="alimentaPes" name="alimentaPes" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="alimentaPes" name="alimentaPes" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="frecuenRiegoPlan">Frecuencia de riego</label>
-                                                        <input type="text" class="form-control" id="frecuenRiegoPlan" name="frecuenRiegoPlan" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="frecuenRiegoPlan" name="frecuenRiegoPlan" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>    
                                             </div>
@@ -204,7 +189,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="cod_pecera">Codigo de la pecera</label>
-                                                        <input type="text" class="form-control" id="cod_pecera" name="cod_pecera" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="cod_pecera" name="cod_pecera" placeholder="Ingrese su nombre de usuario" disabled> 
                                                     </div>
                                                 </div>
                     
@@ -217,26 +202,26 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="tam_pecera">Tamaño de la pecera</label>
-                                                        <input type="text" class="form-control" id="tam_pecera" name="tam_pecera" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="tam_pecera" name="tam_pecera" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="cant_peces">Cantidad de peces</label>
-                                                        <input type="text" class="form-control" id="cant_peces" name="cant_peces" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="cant_peces" name="cant_peces" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="cant_plan">Cantidad de plantas</label>
-                                                        <input type="text" class="form-control" id="cant_plan" name="cant_plan" placeholder="Ingrese su nombre de usuario">
+                                                        <input type="text" class="form-control" id="cant_plan" name="cant_plan" placeholder="Ingrese su nombre de usuario" disabled>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="direccion_pecera">Ubicación</label>
-                                                        <textarea class="form-control" name="direccion_pecera" id="direccion_pecera" cols="30" rows="10"></textarea>
+                                                        <label for="direccion_pecera">Ubicación</label> <!--TIENE 30 CENTIMETROS-->
+                                                        <textarea class="form-control" name="direccion_pecera" id="direccion_pecera" cols="30" rows="10" disabled></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -413,5 +398,16 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  function confirmarCerrarSesion() {
+    // Muestra un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de que quieres cerrar la sesión?');
+
+    // Si el usuario hace clic en "Aceptar", redirige a la ruta de cerrar sesión
+    if (confirmacion) {
+      window.location.href = '/cerrarsesion';
+    }
+  }
+</script>
 </body>
 </html>

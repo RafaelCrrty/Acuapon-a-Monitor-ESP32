@@ -12,7 +12,7 @@ async function obtenerDatos() {
     const cant_peces = document.getElementById('cant_peces');
     const cant_plan = document.getElementById('cant_plan');
     const direccion_pecera = document.getElementById('direccion_pecera');
-
+    
     try{
     // Realizar la solicitud a la ruta que proporciona la información
     const respuesta = await fetch('/getCaracterisAcuaponio');  

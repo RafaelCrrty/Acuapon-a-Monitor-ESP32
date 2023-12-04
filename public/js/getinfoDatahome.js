@@ -20,7 +20,6 @@ async function obtenerDatos() {
                 let numPlantas = primerElemento.num_plantas;
                 let tamaño = primerElemento.tamaño;
                 let codPecera = primerElemento.cod_pecera;
-
                 // Realiza la lógica que necesites con estos datos
                 console.log("Cantidad de peces:", cantPeces);
                 console.log("Número de plantas:", numPlantas);
@@ -33,8 +32,8 @@ async function obtenerDatos() {
                  <td>${tamaño}</td>
                  <td>${cantPeces}</td>
                  <td>${numPlantas}</td>
-                <td>True</td>
-                <td><a href="/panelhomesensors">Ver..</a></td>
+                <td><a href="/panelhomedescribeAcuaponio">Ver mas...</a></td>
+                <td><a href="/panelhomesensors">Ver mas...</a></td>
                  </tr>`;
                  document.getElementById('tabledoyData').innerHTML = content;
             } else {

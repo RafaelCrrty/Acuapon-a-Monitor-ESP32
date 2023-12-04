@@ -2,9 +2,6 @@ const statusServerElement = document.getElementById('status_server');
 const serverElement = document.getElementById('server');
 const temperatura_a = document.getElementById('temperatura_a');
 const humedad_a = document.getElementById('humedad_a');
-const conductividad_a = document.getElementById('conductividad_a');
-const turvidez_a = document.getElementById('turvidez_a');
-
 
 const socket = io();
 
@@ -16,7 +13,7 @@ const socket = io();
       data: {
           labels: etiquetasH,
           datasets: [{
-              label: 'Temperatura de la pecera',
+              label: 'Temperatura de la pecera ºC',
               data: dataAreaH,
               fill: true,
               backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -59,11 +56,11 @@ const socket = io();
       data: {
           labels: etiquetasP,
           datasets: [{
-              label: 'Caudal de flujo',
+              label: 'Caudal de flujo l/min',
               data: dataAreaP,
               fill: true,
-              backgroundColor: 'rgba(255, 99, 132, 0.2)',
-              borderColor: 'rgba(255, 99, 132, 1)',
+              backgroundColor: 'rgba(4, 103, 148, 0.2)',
+              borderColor: 'rgba(48, 75, 93, 1)',
               borderWidth: 1
           }]
       },
@@ -94,39 +91,22 @@ const socket = io();
   };
   var areaChartP = new Chart(ctxAreaP, configuracionP);
 
-const ctxMultilinea = document.getElementById('lineChart').getContext('2d');
+const ctxturvides_c = document.getElementById('areaChart3').getContext('2d');
 
-let fechas_c = [];
-let temp_hambiente_c = [];
-let humedad_c = [];
 let turvides_c = [];
-let conductividad_c = [];
+let etiquetasT = []; 
 
-
-const configuracionMultilinea = {
+const configuracionT = {
     type: 'line',
     data: {
-        labels: fechas_c,
+        labels: etiquetasT,
         datasets: [{
-            label: 'Temperatura de ambiente',
-            data: temp_hambiente_c,
-            fill: false,
-            borderColor: 'rgba(255, 99, 132, 1)', // Color rojo
-        }, {
-            label: 'Humedad',
-            data: humedad_c,
-            fill: false,
-            borderColor: 'rgba(54, 162, 235, 1)', // Color azul
-        }, {
-            label: 'Turvidez',
+            label: 'Turvidez NTU',
             data: turvides_c,
-            fill: false,
-            borderColor: 'rgba(255, 206, 86, 1)', // Color amarillo
-        },  {
-            label: 'Conductividad',
-            data: conductividad_c,
-            fill: false,
-            borderColor: 'rgba(75, 192, 192, 1)', // Color verde
+            fill: true,
+            backgroundColor: 'rgba(158, 99, 68, 0.2)',
+            borderColor: 'rgba(158, 99, 68, 1)',
+            borderWidth: 1
         }]
     },
     options: {
@@ -142,7 +122,7 @@ const configuracionMultilinea = {
                 display: true,
                 title: {
                     display: true,
-                    text: 'Caudal (mml)'
+                    text: 'Voltaje'
                 }
             }
         },
@@ -154,8 +134,53 @@ const configuracionMultilinea = {
         }
     }
 };
+var areaChartT = new Chart(ctxturvides_c, configuracionT);
 
-var areaLineaMultilinea = new Chart(ctxMultilinea, configuracionMultilinea);
+const ctxconductividad_c = document.getElementById('areaChart4').getContext('2d');
+
+let conductividad_c = [];
+let etiquetasC = []; 
+
+const configuracionC = {
+    type: 'line',
+    data: {
+        labels: etiquetasC,
+        datasets: [{
+            label: 'Turvidez ppm',
+            data: conductividad_c,
+            fill: true,
+            backgroundColor: 'rgba(243, 194, 50, 0.2)',
+            borderColor: 'rgba(243, 194, 50, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            x: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'Meses'
+                }
+            },
+            y: {
+                display: true,
+                title: {
+                    display: true,
+                    text: 'ppm'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        }
+    }
+};
+var areaChartC = new Chart(ctxconductividad_c, configuracionC);
+
 
 socket.on('connect', () => {
   console.log("Conectado");
@@ -175,13 +200,15 @@ socket.on('datos-sensores', (dataJ) => {
   console.log('Datos recibidos en el cliente:', dataJ);
   rellenargraficas(etiquetasH,dataAreaH,dataJ.temperatureP,areaChartH);
   rellenargraficas(etiquetasP,dataAreaP,dataJ.flujoagua,areaChartP);
-  rellenargraficasCompuesta(fechas_c,temp_hambiente_c,humedad_c,turvides_c,conductividad_c,dataJ,areaLineaMultilinea);
+  rellenargraficas(etiquetasT,turvides_c,dataJ.turvidez,areaChartT);
+  rellenargraficas(etiquetasC,conductividad_c,dataJ.conductividad,areaChartC);
   // Mostrar los datos de temperatura en el HTML
-  temperatura_a.innerText =`Temperatura ambiente: ${dataJ.temperatureH} ºC`;
-  humedad_a.innerText = `Huemedad: ${dataJ.humidity} %`;
-  conductividad_a.innerText =`Conductividad: ${dataJ.conductividad} %`;
-  turvidez_a.innerText = `Turvidez: ${dataJ.turvidez} %`;
-  actualizarNivelPorcentaje(dataJ.nivelagua);
+  temperatura_a.innerText = `Temperatura ambiente: ${dataJ.temperatureH.toFixed(2)} ºC`;
+  humedad_a.innerText = `Humedad: ${dataJ.humidity.toFixed(2)} %`;
+  alturaPecera = 27;
+  portcenta = (dataJ.nivelagua * 100) / alturaPecera;
+  
+  actualizarNivelPorcentaje(portcenta.toFixed(2));
 });
 
 const rellenargraficas =(etiquetas,datasens,jsondatasensor,graficaactualizar) =>{
@@ -189,7 +216,7 @@ const rellenargraficas =(etiquetas,datasens,jsondatasensor,graficaactualizar) =>
     etiquetas.push(new Date().toLocaleTimeString());
     datasens.push(jsondatasensor);
     // Limitar la cantidad de datos mostrados en la gráfica (por ejemplo, a los últimos 10)
-    if (etiquetas.length > 20) {
+    if (etiquetas.length > 40) {
       etiquetas.shift();
       datasens.shift();
     }
@@ -197,25 +224,6 @@ const rellenargraficas =(etiquetas,datasens,jsondatasensor,graficaactualizar) =>
     graficaactualizar.update();
 }
 
-
-const rellenargraficasCompuesta = (fechas_c, temp_hambiente_c,humedad_c,turvides_c,conductividad_c, jsondatasensor,graficaactualizar) => {
-  // Agrega nuevos elementos al final de cada matriz
-  fechas_c.push(new Date().toLocaleTimeString());
-  temp_hambiente_c.push(jsondatasensor.temperatureH);
-  humedad_c.push(jsondatasensor.humidity);
-  turvides_c.push(jsondatasensor.turvidez);
-  conductividad_c.push(jsondatasensor.conductividad);
-
-  // Limita la cantidad de datos mostrados en la gráfica (por ejemplo, a los últimos 10)
-  if (fechas_c.length > 10) {
-      fechas_c.shift();
-      temp_hambiente_c.shift();
-      humedad_c.shift();
-      turvides_c.shift();
-      conductividad_c.shift();
-  }
-  graficaactualizar.update();
-};
 
 function actualizarNivelPorcentaje(porcentaje) {
   const relleno = document.getElementById('nivelAgua');
@@ -229,4 +237,23 @@ function actualizarNivelPorcentaje(porcentaje) {
 
   // Actualiza el texto del porcentaje
   porcentajeElemento.textContent = porcentaje + '%';
+   // Define una paleta de colores azules
+   const paletaAzules = [
+    '#001f3f', // Azul oscuro
+    '#003366',
+    '#004080',
+    '#00509e',
+    '#0066cc',
+    '#0077e6',
+    '#0099ff', // Azul claro
+  ];
+
+  // Calcula el índice en la paleta basado en el porcentaje
+  const indiceColor = Math.floor((porcentaje / 100) * (paletaAzules.length - 1));
+
+  // Obtén el color de la paleta para el porcentaje actual
+  const color = paletaAzules[indiceColor];
+
+  // Cambia el color del área de la pecera basado en el porcentaje
+  relleno.style.backgroundColor = color;
 }

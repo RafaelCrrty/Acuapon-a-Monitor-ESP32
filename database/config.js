@@ -42,6 +42,26 @@ class Database {
       }
     });
   }
+
+  execute_parseout(sql, params) {
+    return new Promise((resolve, reject) => {
+      this.connection.query(sql, params, (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          // Verificar si hay parámetros de salida
+          const outParams = results[0];
+  
+          // Filtrar solo los resultados que no son parámetros de salida
+          const filteredResults = results.filter((result, index) => index > 0 || !outParams[index]);
+  
+          // Resolver con los resultados filtrados
+          resolve(filteredResults);
+        }
+      });
+    });
+  }
+  
 }
 
 module.exports = Database;

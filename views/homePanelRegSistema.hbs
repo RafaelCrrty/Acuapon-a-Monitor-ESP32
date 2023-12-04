@@ -22,7 +22,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/panelhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
@@ -44,26 +44,12 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/panelhome" >
-                    <i style="color: black;" class="fas fa-fw fa-table"></i>
-                    <span style="color: black; font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
+                    <i style="color: rgb(255, 255, 255);" class="fas fa-fw fa-table"></i>
+                    <span style="color: rgb(255, 255, 255); font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Ayuda(s)
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/panelhomechatBoot" >
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>ChatBot</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -92,14 +78,13 @@
                         </div> 
                     </div>
 
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav mr-lg-5 ml-auto">
-                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
-                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
-                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
                         <li class="nav-item"><a href="/panelhome" class="px-2 link_header_secondary">Panel de Administrador</a></li>
                         <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header">Perfil</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="px-2 link_header_secondary" onclick="confirmarCerrarSesion()">Cerrar sesión</a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
@@ -165,6 +150,17 @@
     </div>
     <!-- End of Page Wrapper -->
     {{> panelhomefooter_sig}}
+    <script>
+  function confirmarCerrarSesion() {
+    // Muestra un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de que quieres cerrar la sesión?');
+
+    // Si el usuario hace clic en "Aceptar", redirige a la ruta de cerrar sesión
+    if (confirmacion) {
+      window.location.href = '/cerrarsesion';
+    }
+  }
+</script>
 
 </body>
 

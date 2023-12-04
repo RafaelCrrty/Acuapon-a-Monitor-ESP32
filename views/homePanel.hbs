@@ -23,7 +23,7 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/paneladministrador/sb-admin-2.css" rel="stylesheet">
-
+    <!-- En el encabezado HTML -->
 </head>
 
 <body id="page-top">
@@ -35,7 +35,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/panelhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                     
                 </div>
@@ -57,26 +57,11 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/panelhome" >
-                    <i style="color: black;" class="fas fa-fw fa-table"></i>
-                    <span style="color: black; font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
+                    <i style="color: rgb(244, 243, 243);" class="fas fa-fw fa-table"></i>
+                    <span style="color: rgb(255, 255, 255); font-weight: bold; font-size: 15px;">Sistemas Acuapónicos</span>
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Ayuda(s)
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/panelhomechatBoot" >
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>ChatBot</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -108,11 +93,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav mr-lg-5 ml-auto">
-                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
-                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
-                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
                         <li class="nav-item"><a href="/panelhome" class="px-2 link_header_secondary">Panel de Administrador</a></li>
                         <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header">Perfil</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="px-2 link_header_secondary" onclick="confirmarCerrarSesion()">Cerrar sesión</a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -123,32 +108,34 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Sistemas Acupónicos</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Sistema Acuapónico</h1>
                         
                     </div>
-
-                    <!-- Content Row -->
                     <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                        <div class="col-sm-6">
+                            <!-- Después de la tabla de registrados -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Temperatura de la pecera</h6>
+                                </div>
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                <a href="/panelhomeregisterSistem">Nuevo sistema Acuapónico</a></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Agregar</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="/panelhomeregisterSistem"><img src="resources/img/iconos/agregar-contacto.png" width="100%" height="60px"></a>
-                                        </div>
-                                    </div>
+                                    <canvas id="graficoMonitoreo1" width="400" height="200"></canvas>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- Después de la tabla de registrados -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Caudal de flujo</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="graficoMonitoreo2" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -161,28 +148,19 @@
                                         <tr>
                                             <th>COD acuaponio</th>
                                             <th>Tamaño Pecera</th>
-                                            <th>Cantidad peces</th>
-                                            <th>Cantidad de plantas</th>
-                                            <th>Conexión</th>
-                                            <th>Más Info..</th>
+                                            <th>Num peces</th>
+                                            <th>Num de plantas</th>
+                                            <th>Especificaciones</th>
+                                            <th>Monitoreo</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>COD acuaponio</th>
-                                            <th>Tamaño Pecera</th>
-                                            <th>Cantidad peces</th>
-                                            <th>Cantidad de plantas</th>
-                                            <th>Conexión</th>
-                                            <th>Más Info...</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody id="tabledoyData">
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -202,8 +180,24 @@
     </div>
     <!-- End of Page Wrapper -->
     {{> panelhomefooter_sig}}
+    <script src="./socket.io/socket.io.js"></script>
 
     <script src="js/getinfoDatahome.js"></script>
+    <script src="js/getDataGraficas.js"></script>
+
+    <script>
+  function confirmarCerrarSesion() {
+    // Muestra un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de que quieres cerrar la sesión?');
+
+    // Si el usuario hace clic en "Aceptar", redirige a la ruta de cerrar sesión
+    if (confirmacion) {
+      window.location.href = '/cerrarsesion';
+    }
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 
 </html>

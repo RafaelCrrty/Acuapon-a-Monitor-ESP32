@@ -18,6 +18,7 @@
         const municipio = document.getElementById('municipio');
         const colonia = document.getElementById('colonia');
         const postal = document.getElementById('postal');
+        const call = document.getElementById('call');
         const callExt = document.getElementById('callExt');
         const callInt = document.getElementById('callInt');
 
@@ -29,6 +30,7 @@
           if (respuesta.ok) {
             // Obtener los datos como JSON
             const datos = await respuesta.json();
+            console.log(datos);
       
             // Acceder a los campos específicos
             const num_plantas = datos.responseData.data.infoCountPesPlan[0][0].num_plantas;
@@ -47,6 +49,7 @@
             const municipioC = datos.responseData.data.usuarioCuenta[0][0].municipio;
             const  coloniaC = datos.responseData.data.usuarioCuenta[0][0].colonia;
             const postalC = datos.responseData.data.usuarioCuenta[0][0].cod_postal;
+            const callC = datos.responseData.data.usuarioCuenta[0][0].calle;
             const callExtC = datos.responseData.data.usuarioCuenta[0][0].num_ext;
             const callIntC =datos.responseData.data.usuarioCuenta[0][0].num_int;
       
@@ -60,9 +63,9 @@
             nombre.value = `${nombreC}`;
             apellido.value =`${apellidoC}`;
             if(generoSeleC === 1){
-              generoSeleccionado.value = 'masculino';
+              generoSeleccionado.value = 1;
             }else{
-              generoSeleccionado.value = 'femenino';
+              generoSeleccionado.value = 2;
             }
             telefono.value =`${telefonoC}`;
             email.value = `${emailC}`;
@@ -73,6 +76,7 @@
             postal.value = `${postalC}`;
             callExt.value = `${callExtC}`;
             callInt.value =`${callIntC}`;
+            call.value = `${callC}`;
       
         } else {
             // Si la respuesta no es exitosa, mostrar un mensaje de error

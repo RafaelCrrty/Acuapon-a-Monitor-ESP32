@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/footer/style_footer.css">
         <link rel="stylesheet" href="css/header/style_header.css">
         <link rel="stylesheet" href="css/general/style.css">
+
     </head>
     <body>       
       <div class="borde-header">
@@ -23,84 +24,261 @@
         </div>
       </div>
         <main>
-            <div class="nuevousuario">
-                <div class="container h-100">
-                  <div class="row d-flex justify-content-center align-items-center h-100">
-                    
-                      <div class="card text-black" style="border-radius: 25px;">
-                        <div class="card-body p-md-5">
-                          <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-              
-                              <p class="text-center h1 fw-bold mb-5">Registro</p>
-
-                              <form id="forms" action="javascript:return false;" class="mx-1 mx-md-4">
-              
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h5>Nombre</h5>
-                                    <input type="text" id="nombre" class="form-control" />
-                                    <label class="form-label" for="nombre"></label>
-                                  </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h5>Apellidos</h5>
-                                    <input type="text" id="apellido" class="form-control" required />
-                                    <label class="form-label" for="apellido"></label>
-                                  </div>
-                                </div>
-              
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h5>Correo</h5>
-                                    <input type="email" id="correo" class="form-control" placeholder="ejemplo@gmail.com" onblur="pruebaemail (correo.value)"/>
-                                    <label class="form-label" for=""></label>
-                                  </div>
-                                </div>
-              
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h5>Contraseña</h5>
-                                    <input type="password" id="contrasena" class="form-control" onblur="validarcontra()"/>
-                                    <label class="form-label" for="contrasena"></label>
-                                  </div>
-                                </div>
-              
-                                <div class="d-flex flex-row align-items-center mb-4">
-                                  <div class="form-outline flex-fill mb-0">
-                                    <h5>Confirmar la Contraseña</h5>
-                                    <input type="password" id="reContrasena" class="form-control" onblur="validarrcontra()"/>
-                                    <label class="form-label" for="reContrasena"></label>
-                                  </div>
-                                </div>
-              
-                              <!--  <div class="form-check justify-content-center mb-5">
-                                  <input class="form-check-input" type="checkbox" value="" id="check"/>
-                                  <label class="form-check-label" for="check">Acepto los terminos y condiciones <a href="#!">Terminos del servicio</a>
-                                  </label>
-                                </div>-->
-                                <div class="d-flex justify-content-between mx-4 mb-3 mb-lg-4">
-                                    <a href="/"><button type="button"  class="btn btn-primary btn-lg" style="background-color: red;">Cancelar</button></a>
-                                    <a href="/"><button type="submit" onclick = 'return enviarform()' class="btn btn-primary btn-lg">Registrar</button></a>  
-                                </div>
-              
-                              </form>
-              
-                            </div>
-                            <div class="col-md-10 col-lg-2 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                              <img src="resources/img/ilustraciones/4.png"class="img-fluid" alt="Sample image">
-              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    
-                  </div>
+          <div class="container mt-5">
+            <!-- Primera parte del formulario: Información de la cuenta -->
+            <div id="parte1" class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Registro de usuario</h5>
                 </div>
+                <div class="card-body">
+                  <form>
+                      <div class="row g-3">
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="usuario">Nombre de Usuario</label>
+                                  <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario">
+                                  <div class="user is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="contrasena">Contraseña</label>
+                                  <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                                  <div class="pass is-invalid"></div>
+                              </div>                    
+                          </div>
+                          <div class="col-sm-3">
+                          <!-- Información del usuario -->
+                              <div class="form-group">
+                                  <label for="nombre">Nombre</label>
+                                  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                                  <div class="nombr is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                  <label for="apellido">Apellidos</label>
+                                  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+                                  <div class="apell is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                  <label for="puesto">Puesto</label>
+                                  <input type="text" class="form-control" id="puesto" name="puesto" placeholder="Administrador" disabled>
+                                  <div class="pues is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="form-group">
+                                  <label for="genero">Género</label>
+                                  <select class="form-control" id="genero" name="genero">
+                                      <option value="1">Masculino</option>
+                                      <option value="0">Femenino</option>
+                                      <option value="otro">Otro</option>
+                                  </select>
+                                  <div class="gene is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="telefono">Teléfono</label>
+                                  <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su número de teléfono">
+                                  <div class="tele is-invalid"></div>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <!-- Información de contacto -->
+                                  <div class="form-group">
+                                      <label for="correo">Correo</label>
+                                      <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico">
+                                      <div class="corr is-invalid"></div>
+                                    </div>
+                              </div>
+      
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="fechanacimiento">Fecha de Nacimiento</label>
+                                  <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" value="Fecha actual">
+                                  <div class="fech is-invalid"></div>
+                                </div>                    
+                          </div>
+      
+                  </div>
+                  </form>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2">
+                            <div style="display: flex; gap: 10px;">
+                                <button id="btnSiguiente1" class="btn btn-primary" style="width: 100px;">Siguiente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    Última actualización: 21 de noviembre de 2023
+                </div>
+            </div>
+        
+            <!-- Segunda parte del formulario: Información de contacto -->
+            <div id="parte2" class="card" style="display: none;">
+                <div class="card-header">
+                    <h5 class="card-title">Registro de usuario</h5>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row g-3">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <select class="form-control" id="estado" name="estado">
+                            </select>
+                            <div class="esta is-invalid"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="municipio">Municipio</label>
+                            <select class="form-control" id="municipio" name="municipio">
+                                <!-- Opciones del municipio -->
+                            </select>
+                            
+                            <div class="muni is-invalid"></div>
+
+                        </div>
+                    </div>
+                                        
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="colonia">Colonia</label>
+                                <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Ingrese su colonia">
+                                <div class="colo is-invalid"></div>
+
+                            </div>                    
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="postal">Codigo postal</label>
+                                <input type="text" class="form-control" id="postal" name="postal" placeholder="Ingrese su codigo postal">
+                                <div class="post is-invalid"></div>
+
+                              </div>                    
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="call">Calle</label>
+                                <input type="text" class="form-control" id="call" name="call" placeholder="Ingrese su calle">
+                                <div class="calle is-invalid"></div>
+                              </div>                    
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="callExt">Num Exterior</label>
+                                <input type="text" class="form-control" id="callExt" name="callExt" placeholder="Ingrese su num exterior">
+                                <div class="callE is-invalid"></div>
+                              </div>                    
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="callInt">Num Interior</label>
+                                <input type="text" class="form-control" id="callInt" name="callInt" placeholder="Ingrese su num interior">
+                                <div class="callI is-invalid"></div>
+                              </div>                    
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2">
+                            <div style="display: flex; gap: 10px;">
+                                <button id="btnAnterior2" class="btn btn-primary" style="width: 100px;">Anterior</button>
+                                <button id="btnGuardar" class="btn btn-success" style="width: 100px;" data-toggle="modal">Guardar</button>                           
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    Última actualización: 21 de noviembre de 2023
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Información de registro</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                          <span aria-hidden="true">×</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row g-3">
+                          <div class="col-sm-6">
+                              <p>Nombre de Usuario: <strong id="usuarioM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Contraseña: <strong id="contrasenaM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Nombre: <strong id="nombreM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Género: <strong id="generoM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Teléfono: <strong id="telefonoM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Correo: <strong id="correoM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Fecha de Nacimiento: <strong id="fechanacimientoM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Estado: <strong id="estadoM"></strong></p>
+                          </div>
+                          <div class="col-sm-6">
+                              <p>Municipio: <strong id="municipioM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Colonia: <strong id="coloniaM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Codigo postal: <strong id="postalM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Calle Exterior: <strong id="callExtM"></strong></p>
+                          </div>
+                          <div class="col-sm-3">
+                              <p>Calle Interior: <strong id="callIntM"></strong></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" id="btnregistrar" class="btn btn-primary">Registrar</button>
+                  </div>
               </div>
+          </div>
+        </div>
+          
         </main>
-      {{> _footer}}
+
+
       <script src="js/scrip.js"></script>
+      <script src="js/validationsRegister.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
     </body>
 </html>

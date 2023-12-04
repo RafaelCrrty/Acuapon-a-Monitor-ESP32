@@ -33,7 +33,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion bg-danger imagenAtras" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/panelhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                 </div>
                 <div class="sidebar-brand-text mx-3">
@@ -60,21 +60,8 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Ayuda(s)
-            </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/panelhomechatBoot" >
-                    <i class="fas fa-fw fa-robot"></i>
-                    <span>ChatBot</span>
-                </a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -106,11 +93,11 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav mr-lg-5 ml-auto">
-                        <li class="nav-item"><a href="/" class="px-2 link_header">Inicio</a></li>
-                        <li class="nav-item"><a href="/acercade" class="px-2 link_header">Acerca de</a></li>
-                        <li class="nav-item"><a href="/contacto" class="px-2 link_header">Contacto</a></li>
                         <li class="nav-item"><a href="/panelhome" class="px-2 link_header">Panel de Administrador</a></li>
                         <li class="nav-item"><a href="/panelhomeperfil" class="px-2 link_header_secondary">Perfil</a></li>
+                        <li class="nav-item">
+                            <a href="#" class="px-2 link_header_secondary" onclick="confirmarCerrarSesion()">Cerrar sesión</a>
+                        </li>
                     </ul>
 
                 </nav>
@@ -155,13 +142,13 @@
     </div>
 
 <div class="container mt-5">
-    <div class="card">
+<div class="card">
         <div class="card-header">
             <h5 class="card-title">Cuenta</h5>
         </div>
         <div class="card-body">
             <!-- Información de la cuenta -->
-            <form>
+            <form id="miFormulario" action="/updateuserscuenta" method="post">
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -172,8 +159,15 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="contrasena">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
-                        </div>                    
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-outline-secondary" type="button" id="btnMostrarPassword">🙈</button>     
+                                </div>
+                            </div>
+                        </div>                 
                     </div>
                     <div class="col-sm-3">
                     <!-- Información del usuario -->
@@ -197,9 +191,9 @@
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="genero">Género</label>
-                            <select class="form-control" id="genero">
-                                <option value="masculino">Masculino</option>
-                                <option value="femenino">Femenino</option>
+                            <select class="form-control" id="genero" name="genero">
+                                <option value="1">Masculino</option>
+                                <option value="2">Femenino</option>
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
@@ -217,36 +211,35 @@
                                 <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico">
                             </div>
                         </div>
-
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="fechanacimiento">Fecha de Nacimiento</label>
                             <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" value="Fecha actual">
                         </div>                    
                     </div>
-
             </div>
             </form>
-            </div>
-            <div class="card-body">
-                <div class="row">
+            <div class="row">
                     <div class="col-md-10">
 
                     </div>
                     <div class="col-md-2">
                         <div style="display: flex; gap: 10px;">
                             <!--disabled-->
-                            <button id="btnguardar" class="btn btn-success d-none" style="width: 100px;" disabled>Guardar</button>
-                            <button id="btneditar" class="btn btn-primary" style="width: 100px;">Editar</button>
-                        </div>
+                            <button id="btneditar" class="btn btn-primary">Editar</button>
+                            <button id="btnguardar" class="btn btn-success d-none" disabled>Guardar</button>
+                            
+                       </div>
                     </div>
-                </div>
-                </div>
             </div>
+        </div>
+
             <div class="card-footer text-muted">
                 Última actualización: 21 de noviembre de 2023
             </div>
 </div>
+</div>
+
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
@@ -254,45 +247,60 @@
         </div>
         <div class="card-body">
             <!-- Información de la cuenta -->
-            <form>
+            <form id="miFormulario2" action="/updateuserscontacto" method="post">
                 <div class="row g-3">
-                    <div class="col-sm-6">
+                      <div class="col-sm-6">
                         <div class="form-group">
                             <label for="estado">Estado</label>
-                            <input type="text" class="form-control" id="estado" name="estado" placeholder="Ingrese su correo electrónico">
-                        </div>                    
+                            <input type="text" class="form-control"  id="estado" name="estado">
+                            <div class="esta is-invalid"></div>
+                        </div>
                     </div>
-
+                    
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="municipio">Municipio</label>
-                            <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Ingrese su correo electrónico">
-                        </div>                    
+                            <input type="text" class="form-control" id="municipio" name="municipio">                            
+                            <div class="muni is-invalid"></div>
+                        </div>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="colonia">Colonia</label>
-                            <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Ingrese su correo electrónico">
-                        </div>                    
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="postal">Codigo postal</label>
-                            <input type="text" class="form-control" id="postal" name="postal" placeholder="Ingrese su correo electrónico">
-                        </div>                    
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="callExt">Calle Exterior</label>
-                            <input type="text" class="form-control" id="callExt" name="callExt" placeholder="Ingrese su correo electrónico">
-                        </div>                    
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <label for="callInt">Calle Interior</label>
-                            <input type="text" class="form-control" id="callInt" name="callInt" placeholder="Ingrese su correo electrónico">
-                        </div>                    
-                    </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="colonia">Colonia</label>
+                                <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Ingrese su colonia">
+                                <div class="colo is-invalid"></div>
+
+                            </div>                    
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="postal">Codigo postal</label>
+                                <input type="text" class="form-control" id="postal" name="postal" placeholder="Ingrese su codigo postal">
+                                <div class="post is-invalid"></div>
+
+                              </div>                    
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="call">Calle</label>
+                                <input type="text" class="form-control" id="call" name="call" placeholder="Ingrese su calle">
+                                <div class="calle is-invalid"></div>
+                              </div>                    
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="callExt">Num Exterior</label>
+                                <input type="text" class="form-control" id="callExt" name="callExt" placeholder="Ingrese su num exterior">
+                                <div class="callE is-invalid"></div>
+                              </div>                    
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="callInt">Num Interior</label>
+                                <input type="text" class="form-control" id="callInt" name="callInt" placeholder="Ingrese su num interior">
+                                <div class="callI is-invalid"></div>
+                              </div>                    
+                        </div>
                 </div>
             </form>
         </div>
@@ -303,8 +311,8 @@
                 <div class="col-md-2">
                     <div style="display: flex; gap: 10px;">
                         <!--disabled-->
-                        <button id="btnguardar" class="btn btn-success d-none" style="width: 100px;" disabled>Guardar</button>
-                        <button id="btneditar" class="btn btn-primary" style="width: 100px;">Editar</button>
+                        <button id="btnguardar2" class="btn btn-success d-none" disabled>Guardar</button>
+                        <button id="btneditar2" class="btn btn-primary">Editar</button>
                     </div>
                 </div>
             </div>
@@ -313,9 +321,11 @@
         <div class="card-footer text-muted">
             Última actualización: 21 de noviembre de 2023
         </div>  
-    </div>                
+</div>                
+
+</div>
+
                 </div>
-            </div>
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                 <div class="container">
                     <div class="row">
@@ -386,11 +396,113 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/methodGETinfo.js"></script>
+    <script src="js/getestados.js"></script>
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var formulario = document.getElementById("miFormulario");
+            var formulario2 = document.getElementById("miFormulario2");
+
+            // Obtén todos los elementos de entrada dentro del formulario
+            const elementosInput = formulario.querySelectorAll("input, select");
+
+            // Deshabilita cada elemento de entrada
+            elementosInput.forEach((elemento) => {
+                elemento.disabled = true;
+            });
+
+            // Obtén todos los elementos de entrada dentro del formulario
+            const elementosInput2 = formulario2.querySelectorAll("input, select");
+
+            // Deshabilita cada elemento de entrada
+            elementosInput2.forEach((elemento2) => {
+                elemento2.disabled = true;
+            });
+
+            var passwordInput = document.getElementById("contrasena");
+            var btnMostrarPassword = document.getElementById("btnMostrarPassword");
+    
+            btnMostrarPassword.addEventListener("click", function() {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
+        });
+        var btnGuardar = document.getElementById("btnguardar");
+        var btnEditar = document.getElementById("btneditar");
+
+        // Agregar un controlador de eventos al botón de editar
+        btnEditar.addEventListener("click", function() {
+            // Ocultar el botón de editar
+            btnEditar.classList.add("d-none");
+            // Mostrar el botón de guardar
+            btnGuardar.classList.remove("d-none");
+            btnGuardar.disabled = false;
+                        // Deshabilita cada elemento de entrada
+            elementosInput.forEach((elemento) => {
+                elemento.disabled = false;
+            });
+        });
+
+        // Agregar un controlador de eventos al botón de guardar
+        btnGuardar.addEventListener("click", function() {
+            btnEditar.classList.remove("d-none");
+            btnGuardar.classList.add("d-none");
+            btnEditar.disabled = false;
+            // Enviar el formulario
+            formulario.submit();
+            // Deshabilita cada elemento de entrada
+            elementosInput.forEach((elemento) => {
+                elemento.disabled = true;
+            });
+        });
+
+        var btnGuardar2 = document.getElementById("btnguardar2");
+        var btnEditar2 = document.getElementById("btneditar2");
+    
+        // Agregar un controlador de eventos al botón de editar
+        btnEditar2.addEventListener("click", function() {
+            // Ocultar el botón de editar
+            btnEditar2.classList.add("d-none");
+            // Mostrar el botón de guardar
+            btnGuardar2.classList.remove("d-none");
+            btnGuardar2.disabled = false;
+            elementosInput2.forEach((elemento2) => {
+                elemento2.disabled = false;
+            });
+        });
+
+        // Agregar un controlador de eventos al botón de guardar
+        btnGuardar2.addEventListener("click", function() {
+            btnEditar2.classList.remove("d-none");
+            btnGuardar2.classList.add("d-none");
+            btnEditar2.disabled = false;
+            // Enviar el formulario
+            formulario2.submit();
+            // Deshabilita cada elemento de entrada
+            elementosInput2.forEach((elemento2) => {
+                elemento2.disabled = true;
+            });
+        });
+
+        });
+    </script>
 
 </div>
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  function confirmarCerrarSesion() {
+    // Muestra un cuadro de diálogo de confirmación
+    const confirmacion = confirm('¿Estás seguro de que quieres cerrar la sesión?');
+
+    // Si el usuario hace clic en "Aceptar", redirige a la ruta de cerrar sesión
+    if (confirmacion) {
+      window.location.href = '/cerrarsesion';
+    }
+  }
+</script>
 </body>
 </html>

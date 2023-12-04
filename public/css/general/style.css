@@ -93,6 +93,26 @@ body {
     /* Centra completamente la imagen */
 }
 
+
+/*Color de fondos del index por casualidades de la vida (lilia) que querian cambios*/
+.fonde{
+    background-image: linear-gradient(120deg, #1d878f 0%, #254b81 100%);
+}
+.btn-fonde{
+    color: #072857;
+    border-color:#072857;
+    
+}
+.btn-fonde:hover{
+    background-image: linear-gradient(120deg, #074549 0%, #072857 100%);
+    color:  white ;
+    transition: ease-in-out 0.5s;
+    
+}
+
+
+
+
 #fondo {
     width: 100%;
     height: 150px;
@@ -129,7 +149,7 @@ canvas {
 
 .barra {
     height : 100%;
-    min-height: 600px;
+    min-height: 260px;
     width: 100%;
     border: 1px solid #ccc;
     position: relative;
