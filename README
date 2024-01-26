@@ -1,2 +1,1 @@
-# Web server + restServer
-Ejecutar ``npm install`` para recuperar los modulos
+A web program was developed to be able to monitor an aquaponic system in real time, using ESP32, the data is directed in json format to the server through an api-rest built in NodeJS using sokect.io, in order to have the user information. website with updated data and notify of possible failures or errors that harm the system, using the ESP32 as a microcontroller, actuators can be used to regulate the flow of water, such as the temperature of the fish tank, applying PWM, with the acquired data From the fish tank, the data can be analyzed to apply exploratory analysis to the data and apply AI to predict trends in aquaponic system performance.
